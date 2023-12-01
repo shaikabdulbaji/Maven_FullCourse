@@ -1,0 +1,78 @@
+What is Multi-Module Maven Project ? 
+
+How to create Multi-Module Maven Project ? 
+
+Dependency Management in Multi-Module Maven Project ?
+
+
+
+
+[Parent] Main Maven Project
+			--> Sub Project 1 [ Module 1 ]
+			--> Sub Project 2 [ Module 2 ]
+			--> Sub Project 3 [ Module 3 ]
+			.
+			.
+			.
+			.
+
+main maven project lo pom.xml file unatdi and e modules kuda china projects antea vir=tiki kuda pom.xml files untai.
+
+
+Banking App :
+
+XYZBank  [Main Maven Project]  --> pom.xml ==> 20 common dependencies version and scope is same.
+			--> Module 1 - Internet Banking [40 dependencies unai anuko in pom.xml lo]
+			--> Module 2 - Credit Card [25 dependencies unai anuko in pom.xml lo]
+e rendu modules lo common ga 20 dependencies unai anuko dani main project pom.xml file lo pedtamu.
+
+			
+
+first asal main maven project create chaiyali tarvata sub projects create chaiyali.
+main maven project --> normal ga create chaiyali -> sample project pai click chaiyali -> project name adaina evachu but packing lo default ga "jar" untadi dani "pom" ki change chaiyali ->
+finish click chaiyali.
+sub maven project --> main maven project pai right click echi tarvata -> new click chaiyali -> project -> maven module -> name manki estam vachindi evachu -> finish.
+
+
+main maven project lo ela dependencies evali : (manaki project lo em dependencies use aavutaiyo ani ekada add cheasukovali under "dependencyManagement" tag)
+<dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.8.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>5.6.2</version>
+		</dependency>	
+	</dependencies>
+</dependencyManagement>
+
+tarvata module-1 project lo src/test/java lo vaka package create cheasukoni danikinda ado vaka sam-ple test case add cheasukovali. malli aa module-1 lo dependencies add cheasukovali vatiki versions and scope add chaiyanavasaram leadu ndukantea main maven project lo manam a version estea dani modules lo automatic ga adea version jars download aavutai.
+<dependencies>
+	<dependency>
+		<groupId>org.seleniumhq.selenium</groupId>
+		<artifactId>selenium-java</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.testng</groupId>
+		<artifactId>testng</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>io.github.bonigarcia</groupId>
+		<artifactId>webdrivermanager</artifactId>
+	</dependency>	
+</dependencies>
+
+manam module-1 lo a test case rasamo adea test case module-2 lo kavali antea aa name call chestea saripodi. 
+malli manaki adana particular module lo specific versions dependencies kavali antea aa module pom.xml file lo aa version number estea automatic ga aa module vatiki aa dependencies download
+aavutai.
+

@@ -1,0 +1,27 @@
+Prerequisites:---
+--------------
+
+1] Donwload and install JDK
+
+2] Set JAVA_HOME and Path upto bin folder in Environmental Variables
+
+3] Download Maven 
+
+4] Set MAVEN_HOME and Path upto bin folder in Environmental Variables
+
+5] Verify versions 
+
+6] Create Maven Project with maven commands--
+
+ -- Open cmd prompt
+ -- Create a directory
+ -- list file with ls
+ - Run command-
+
+mvn archetype:generate -DgroupId=qa.automation -DartifactId=FacebookApp -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.0 -DinteractiveMode=false
+
+ -- Run tests with mvn test 
+ -- Build project with mvn package command
+ -- Run App.java using that JAR file
+ 
+ java -cp target/FacebookApp-1.0-SNAPSHOT.jar qa.automation.App

@@ -1,0 +1,27 @@
+How to run Maven Project with main method using exec maven plugin. Here will run java main class from maven. Using exec:java we can execute the java code easily after setup of exec maven plugin in pom.xml 
+
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId> 
+					<version>3.8.1</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId> --> execute main method
+					<version>1.6.0</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>java</goal> --> run java project
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<mainClass>package1.testcase1</mainClass> --> package1.testcase1(packageName.ClassName)
+					</configuration>
+				</plugin>
+
+e plugin pom.xml file lo echina tarvata manam maven project ni vaka sari update chaiyali and tarvata maven test chaiyali.
+
+tarvata aa java main method run aavali antea project pai right click echi --> run as --> maven build --> test exec:java (or) exec:java (or) mvn exec:java -Dexec.mainClass=package1.testcase1
+(or) mvn compile exec:java

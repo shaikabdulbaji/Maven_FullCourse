@@ -1,0 +1,43 @@
+How to create Executable JAR file of Maven Project in eclipse and  Run automation by running the executable JAR file.
+
+There are different ways to create runnable or executable JAR--
+
+
+One Method :
+----------
+manam normal ga vaka maven project create cheasi dani lo vaka 2 packages create cheasi andulo vakati main method class and inkoti normal method, deni run chaiyataniki manam project pai 
+right click echi run as pai click cheasi maven install install pai click chestea challu manaki target folder lo vaka .jar file create iedi. dani run chaiyali antea manam project location
+loki velli cmd open cheasi e command evali --> java -jar jarfileName.jar
+edi echi enter chick chestea ardam iedi, kani edi executable jar kadi e jar file lo .class files untai avi kuda manam packages ki sambandinchi.
+
+adea .jar ni executable file ga marchali antea manam vaka jar plugin ni add chaiyali -->
+<plugin>
+   <groupId>org.apache.maven.plugins</groupId>
+   <artifactId>maven-jar-plugin</artifactId>
+   <version>3.3.0</version>
+   <configuration>
+	<archive>
+	    <manifest>
+		<addClasspath>true</addClasspath>
+		<mainClass>main.MainRunner</mainClass>
+	    </manifest>
+	</archive>
+   </configuration>
+</plugin>
+manam project pai right click echi run as pai click cheasi maven install install pai click chestea challu manaki target folder lo vaka .jar file create iedi. dani run chaiyali antea manam project location loki velli cmd open cheasi e command evali --> java -jar jarfileName.jar
+epudu aa project run iedi.
+
+Adana run chaiyali antea dani mundhu prathi sari mvn clean click chaiyali.
+
+
+Second Method :
+-------------
+deni kosam manam project pai right 1st mvn clean cheasukovali and malli project pai right click echi export pai click cheasi project main method class select cheasukoni and aa runnabe jar ki location echi enter chaiyali, dani run chaiyali antea manam project location loki velli cmd open cheasi e command evali --> java -jar jarfileName.jar
+
+
+
+export project as runnable jar and by using the  JAR plugin in pom.xml
+
+How to create the Executable JAR of Maven Project ?
+Run Executable JAR..
+Run automation code by running the executable JAR file

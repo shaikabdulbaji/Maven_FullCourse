@@ -1,0 +1,4 @@
+# Created at 2023-11-27T13:52:41.789
+Boot Manifest-JAR contains absolute paths in classpath 'D:\Maven\13.Run_multiple_TestNG_XML_Files_simultaneously_sequentially_and_in_parallel_using_Maven_pom.xml\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+

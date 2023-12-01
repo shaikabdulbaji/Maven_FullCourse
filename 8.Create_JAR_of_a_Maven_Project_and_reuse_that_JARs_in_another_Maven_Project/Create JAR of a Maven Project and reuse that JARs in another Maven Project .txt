@@ -1,0 +1,29 @@
+How to Create JAR of Maven Project(main/test classes) ? 
+
+first create maven project and create some testcases in src/main/java and some testcases in src/test/java.
+
+for creating jar file we can run that maven project, before running maven project first clean that maven project(maven clean) and then update maven project and for creating jar file add one plugin in pom.xml file.
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>3.2.0</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>test-jar</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<finalName>ProjectJARs/project</finalName>
+					</configuration>
+				</plugin>
+
+after adding this plugin run that maven project and after running we get some folders in target folder that are
+project ==> contains the .class files from src/main/java
+project-tests ==> contains the .class files from src/test/java
+
+mvn package: Creates JAR or WAR file for the project to convert it into a distributable format. mvn install: Deploys the packaged JAR/ WAR file to the local repository.
+
+1st project classes ani 2nd project lo use cheasukovali antea, aa 1st project run cheasina tarvata vachina jars in target folder lovi e 2nd project lo upload chaiyali ala antea
+go to 2nd project -> right click -> build path -> add external jars -> select above jars.

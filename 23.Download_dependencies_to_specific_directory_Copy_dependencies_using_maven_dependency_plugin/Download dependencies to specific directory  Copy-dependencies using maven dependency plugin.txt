@@ -1,0 +1,25 @@
+Download maven dependencies to a specific directory.
+
+1. Using mvn command -- mvn dependency:copy-dependencies -DoutputDirectory=./Mydependencies
+mvn dependency:copy-dependencies --> e command maven build lo estea default ga ani jars target folder lo copy aavutai.
+mvn dependency:copy-dependencies -DoutputDirectory=./Mydependencies --> mana project lo "Mydependencies" anea folder create ie tarvata daniloki jars copy aavutai.
+
+
+2. Using dependency Plugin - Add dependency plugin in pom.xml and save the file or just run the maven test/ verify command so that all the latest Jars would get downloaded to directory you have provided in the configuration. (not working present)
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>3.6.1</version>
+					<executions>
+						<execution>
+							<id>copy-dependencies</id>
+							<phase>package</phase>
+							<goals>
+								<goal>copy-dependencies</goal>
+							</goals>
+							<configuration>
+								<!-- other configurations here -->
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>

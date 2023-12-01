@@ -1,0 +1,81 @@
+Maven Lifecycle -- Phases -- Plugin -- Goals
+
+maven lifecycle --> maven lifecycle is associated with different phases
+phases --> each phase will have plugin
+plugin --> plugin will be associated with one or more goals.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+maven lifecycle has 3 phases :
+1. maven build /default lifecycle
+Lifecycle default/ Build Lifecycle - [validate, initialize, generate-sources, process-sources, 
+
+generate-resources, process-resources, compile, process-classes, 
+
+generate-test-sources, process-test-sources, generate-test-resources, 
+
+process-test-resources, test-compile, process-test-classes, test,
+ 
+prepare-package, package, pre-integration-test, integration-test, 
+
+post-integration-test, verify, install, deploy]
+
+
+2. maven clean lifecycle
+Lifecycle clean - [pre-clean, clean, post-clean]
+
+Clean Lifecycle have 3 phases:
+
+1. Pre Clean: In this some process which are required prior to Clean phase are executed.
+
+2. Clean : In this , we actually clean the multiple files in the target folders generated in Previous Build. This can include few temporary files, project JARs, Source files and compiled classes
+This is required so that we get fresh build.
+
+3. Post Clean: In this , few processes executes to finalize cleaning of the Project. 
+
+Here main phase is the Clean phase. Build Lifecycle is used to compile, Execute testcases and create Project JAR.
+
+Means we will clean our project first with mvn clean so that we will get fresh build after running mvn install.
+
+
+3. maven site lifecycle
+Lifecycle site - [pre-site, site, post-site, site-deploy]
+
+The flow is sequential, phases runs one after another step by step,
+
+Ex-for default lifecycle, it starts with validate, then initialize and so on...
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Phases lo different phases untai avi entantea
+
+validate
+compile
+test
+packaging
+install
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Plugin ala use aavutai antea 
+
+compile cheaseatapudu compiler plugin use chestamu
+test cheaseatapudu surefire plugin use chestamu
+packaging cheaseatapudu jar plugin use chestamu
+install cheaseatapudu install plugin use chestamu
+clean cheaseatapudu clean plugin use chestamu
+validate cheaseatapudu resourse plugin use chestamu
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Goal ala use aavutai antea 
+
+mvn phaseName 
+mvn plugin:goal
+mvn phase1 phase2
+
+mvn compile (or) mvn compiler:compile --> this will run all the previous phases upto the compile phase
+mvn test --> this will run all the previous phases upto the test phase
+mvn install --> this will run all the previous phases upto the install phase
+mvn clean --> this will run all the previous phases upto the clean phase
+

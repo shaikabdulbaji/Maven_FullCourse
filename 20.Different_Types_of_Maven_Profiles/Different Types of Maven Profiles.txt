@@ -1,0 +1,11 @@
+Different Types of Maven Profiles?
+How to Create build with maven profiles using ECLIPSE & CMD prompt. 
+We need to use settings.xml file in Maven to define maven profile at user and global level.
+We will learn different ways to activate maven profiles from eclipse, cmd line and settings.xml
+
+
+Types----
+
+1] Per Project [ Need to define separately for each Maven Project ]
+2] Per User [ Applicable for Every Maven Project for given User ]
+3] Global [ Applicable for all the users all Maven Projects ]

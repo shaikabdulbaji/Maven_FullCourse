@@ -1,0 +1,219 @@
+What is a Maven profile?
+A profile in Maven is an alternative set of configuration values which set or override default values. Using a profile, you can customize a build for different environments. Profiles are configured in the pom.xml and are given an identifier.
+
+Maven profile antea manam a environment lo kavali antea aa environment lo project ni run chaiyavachu. ela run chaiyali antea vitiki pom.xml file lo profiles evali adi ala antea :
+	<profiles>
+	
+		<!-- ## Profile - 1 ## -->	
+	
+		<profile>
+			<id>Release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.5.1</version>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.22.1</version>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jar-plugin</artifactId>
+						<version>3.0.0</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>test-jar</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<finalName>ProjectJARs/project</finalName>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+			<dependencies>
+				<dependency>
+					<groupId>org.seleniumhq.selenium</groupId>
+					<artifactId>selenium-java</artifactId>
+					<version>3.10.0</version>
+				</dependency>
+
+				<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+				<dependency>
+					<groupId>org.testng</groupId>
+					<artifactId>testng</artifactId>
+					<version>7.3.0</version>
+					<scope>test</scope>
+				</dependency>
+
+
+				<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+				<dependency>
+					<groupId>io.github.bonigarcia</groupId>
+					<artifactId>webdrivermanager</artifactId>
+					<version>5.6.2</version>
+				</dependency>
+			</dependencies>
+		</profile>
+		
+		<!-- ## Profile - 2 ## -->
+
+		<profile>
+			<id>production</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.8.1</version>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>3.2.2</version>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jar-plugin</artifactId>
+						<version>3.2.0</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>test-jar</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<finalName>ProjectJARs/project</finalName>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+			<dependencies>
+				<dependency>
+					<groupId>org.seleniumhq.selenium</groupId>
+					<artifactId>selenium-java</artifactId>
+					<version>3.141.0</version>
+				</dependency>
+
+				<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+				<dependency>
+					<groupId>org.testng</groupId>
+					<artifactId>testng</artifactId>
+					<version>7.7.0</version>
+					<scope>test</scope>
+				</dependency>
+
+
+				<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+				<dependency>
+					<groupId>io.github.bonigarcia</groupId>
+					<artifactId>webdrivermanager</artifactId>
+					<version>5.6.2</version>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+
+e profiles echina tarvata manam src/test/java lo vaka normal testcase vakati create cheasi dani normal ga run cheasi chudani adi work itea fine.
+manam e profiles tho aa testcase run aavali antea, project pai right click echi -> run as ->maven build.
+aa maven build lo e plugin estea saripodi --> install -P Release (or) install -P Production
+
+mvn phaseName -P profileID
+mvn install -P sanity
+
+manaki koni test cases a run avali like sanity and smoke and regression la antea vatiki plugins add chaiyali like 
+		<!-- ## Profile - Sanity ## -->
+		<profile>
+			<id>sanity</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.22.1</version>
+						<configuration>
+							<suiteXmlFiles>sanity.xml</suiteXmlFiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
+		<!-- ## Profile - Smoke ## -->
+		<profile>
+			<id>smoke</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.22.1</version>
+						<configuration>
+							<suiteXmlFiles>smoke.xml</suiteXmlFiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
+		<!-- ## Profile - Regression ## -->
+		<profile>
+			<id>regression</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.22.1</version>
+						<configuration>
+							<suiteXmlFiles>regression.xml</suiteXmlFiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+ela plugins echina tarvata manam sanity.xml and smoke.xml and regression.xml
+<suite name="Suite">
+	<test thread-count="5" name="Test">
+		<classes>
+			<class name="package1.loginTest">
+				<methods>
+					<include name="sanityTest" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
+<suite name="Suite">
+	<test thread-count="5" name="Test">
+		<classes>
+			<class name="package1.loginTest">
+				<methods>
+					<include name="smokeTest" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
+<suite name="Suite">
+	<test thread-count="5" name="Test">
+		<classes>
+			<class name="package1.loginTest">
+				<methods>
+					<include name="regressionTest" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
+
+project pai right click echi -> run as ->maven build, aa maven build lo e plugin estea saripodi --> test -P sanity (or) test -P smoke (or) test -P regression.
+asal active ga a resources unaiyo telusukotaniki --> help:active-profiles -P sanity (or) help:active-profiles -P smoke (or) help:active-profiles -P regression (or) help:active-profiles -P sanity,smoke (or) help:active-profiles -P sanity,regression (or) help:active-profiles -P sanity,smoke,regression

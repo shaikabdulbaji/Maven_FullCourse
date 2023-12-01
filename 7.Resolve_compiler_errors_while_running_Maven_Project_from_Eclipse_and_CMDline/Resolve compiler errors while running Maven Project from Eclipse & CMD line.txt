@@ -1,0 +1,46 @@
+Q. How to resolve following errors when running your Maven Project(Particularly When JDK Version is greater than 8 ) 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+first right click on project -> run as -> maven clean.
+first right click on project -> click on maven -> update maven.
+
+[ERROR 1] No compiler is provided in this environment. Perhaps you are running on a JRE rather than a JDK?
+solution :
+==> Set JDK as run time environment 
+1. Go to windows --> Preferences --> Java --> Installed JREs --> Add JDK folder --> Apply and Save.
+2. Update maven project.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+first right click on project -> run as -> maven clean.
+first right click on project -> click on maven -> update maven.
+
+[ERROR 2] Source option 6 is no longer supported. Use 7 or later.
+[ERROR 2] Target option 6 is no longer supported. Use 7 or later.
+
+By default Maven Compiler uses 1.6 as Source and Target. So we need to force it to use 1.8 version(Java 8 version) no matter what JDK version u have Set in Installed JREs.
+solution :
+One way : Add Properties to Set Source and Target as 1.8 in POM.XML
+<properties>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<maven.compiler.source>1.7</maven.compiler.source>
+	<maven.compiler.target>1.7</maven.compiler.target>
+</properties>
+
+Second way : Configure Maven Compiler plugin to Set Source and Target as 1.8 in POM.XML
+<plugin>
+	<artifactId>maven-compiler-plugin</artifactId>
+	<version>3.8.0</version>
+	<configuration>
+		<source>1.8</source>
+		<target>1.8</target>
+	</configuration>
+</plugin>
+
+Note : vaka vela pom.xml file lo manam e source and target plugin ela compiler plugin kinda estea paina echina properties tags remove chaiyali.
+
+vako sari cmd tho run cheasinapudu kuda elanti problems vastai apudu environment variables lo java bin path evali apudu antha set right iedi.
+
+Third way : Install JDK 1.8 and Set path in Environmental Variables
+e paina two errors ki vaka manchi solution entantea java 1.8v download cheasukoni java_Home and java_path environment variables lo estea saripodi. paina two errors ravu.

@@ -1,0 +1,26 @@
+1. Different Maven commands to run test cases
+
+mvn test --> edi estea una test cases ani run aavutai and .class files create aavutai target folder lo.
+mvn install --> edi estea test cases ani run aavutai and vaka jar file create iedi target folder lo.
+mvn clean --> edi estea old reports or etc which is in target folder are deleted.
+mvn clean install --> edi estea old reports or etc which is in target folder are deleted and run aavutai and vaka jar file create iedi target folder lo.
+
+2. Run Maven project from Eclipse in multiple ways
+one way : manm project pai right click echi -> run as -> mvn test (or) mvn install (or) mvn clean deani pai ana manam click chaivachu.
+second way : manm package pai right click echi -> run as -> mvn test (or) mvn install (or) mvn clean deani pai ana manam click chaivachu.
+third way : manm pom.xml pai right click echi -> run as -> mvn test (or) mvn install (or) mvn clean deani pai ana manam click chaivachu.
+fourth way : manm project pai right click echi -> run as -> maven build loki velli -> test (or) install (or) clean deani pai ana manam click chaivachu.
+fifth way : manm package pai right click echi -> run as -> maven build loki velli -> test (or) install (or) clean deani pai ana manam click chaivachu.
+sixth way : manm pom.xml pai right click echi -> run as -> maven build loki velli -> test (or) install (or) clean deani pai ana manam click chaivachu.
+
+3. Add the plugins in pom.xml=
+
+Where and how to add Compiler Plugin , surefire Plugin
+Plugin ala use aavutai antea 
+
+compile cheaseatapudu compiler plugin use chestamu
+test cheaseatapudu surefire plugin use chestamu
+packaging cheaseatapudu jar plugin use chestamu
+install cheaseatapudu install plugin use chestamu
+clean cheaseatapudu clean plugin use chestamu
+validate cheaseatapudu resourse plugin use chestamu

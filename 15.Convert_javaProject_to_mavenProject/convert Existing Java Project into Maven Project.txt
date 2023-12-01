@@ -1,0 +1,1 @@
+Create java project --> then go to project and right click on java project --> go to configure --> then click on convert to maven project.

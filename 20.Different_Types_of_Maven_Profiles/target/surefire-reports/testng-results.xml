@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-12-01T11:32:22 IST" name="Surefire suite" finished-at="2023-12-01T11:32:39 IST" duration-ms="16862">
+    <groups>
+    </groups>
+    <test started-at="2023-12-01T11:32:22 IST" name="Surefire test" finished-at="2023-12-01T11:32:39 IST" duration-ms="16862">
+      <class name="package1.loginTest">
+        <test-method signature="login()[pri:0, instance:package1.loginTest@5b7a5baa]" started-at="2023-12-01T11:32:22 IST" name="login" finished-at="2023-12-01T11:32:27 IST" duration-ms="4731" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="regressionTest()[pri:0, instance:package1.loginTest@5b7a5baa]" started-at="2023-12-01T11:32:27 IST" name="regressionTest" finished-at="2023-12-01T11:32:30 IST" duration-ms="2960" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- regressionTest -->
+        <test-method signature="sanityTest()[pri:0, instance:package1.loginTest@5b7a5baa]" started-at="2023-12-01T11:32:30 IST" name="sanityTest" finished-at="2023-12-01T11:32:35 IST" duration-ms="4851" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sanityTest -->
+        <test-method signature="smokeTest()[pri:0, instance:package1.loginTest@5b7a5baa]" started-at="2023-12-01T11:32:35 IST" name="smokeTest" finished-at="2023-12-01T11:32:39 IST" duration-ms="4262" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- smokeTest -->
+      </class> <!-- package1.loginTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

@@ -1,0 +1,18 @@
+1. Skipping Tests in Maven
+2. Create JAR directly without running test cases in Maven
+
+There are 2 ways to Skip test cases:
+
+ 1. Add Properties in pom.xml= skipTests true /skipTests
+ 
+ 2. Set configuration for surefire plugin in pom.xml=
+         skipTests ${skipTests} skipTests
+
+Use following commands :
+
+ -DskipTests install
+              OR
+ -DskipTests=true install 
+
+ -If u want to run the tests then use 
+ -DskipTests=false install 

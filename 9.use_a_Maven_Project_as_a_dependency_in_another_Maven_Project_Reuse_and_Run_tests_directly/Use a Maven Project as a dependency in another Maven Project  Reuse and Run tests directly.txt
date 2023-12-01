@@ -1,0 +1,16 @@
+How to use a Maven Project as a dependency in another Maven Project. Reuse and Run tests directly 
+
+Means, If we have Project 9 and Project 9.1 then I want to Use methods from classes from Project 1 to Project 2 directly.
+
+You can run testcases added in the Project 1from the Project 2 using testng.xml or mvn test.
+
+So we need to add dependency of Project 9 in to the pom.xml of Project 9.1 and then everything is ready to reuse which reduces code size, saves lots of time and efforts in Project 2. Even you won't required to add dependencies for Selenium, TestNG, WebDriverManager in Project 9.1. Those will be automatically added in Project 9.1 when u add Project 9 dependency.
+
+Two Jars will be generated target/ProjectJARs:
+
+1. Project jar (classes from all packages under src/main/java) 
+2. Project-Tests jar(classes from all packages under src/test/java)
+
+JARs in ".m2 repository"==
+1. main classes JAR= (Naming Convention) artifactid-version
+2. test classes JAR=(Naming Convention) artifactid-version-tests

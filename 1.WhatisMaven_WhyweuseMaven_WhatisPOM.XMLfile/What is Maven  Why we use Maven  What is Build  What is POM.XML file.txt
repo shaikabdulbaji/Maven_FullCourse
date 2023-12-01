@@ -1,0 +1,18 @@
+1. What is Maven? 
+Build Automation tool.
+Build - A build is a version of software or application, which is ready for testing.
+
+development iea loga, tesing team emo test plan and test scenarios and test cases create cheasi ready ga petukuntaru, once development ipoina tarvata senior developer ani brances lo una code ni merge cheasi vaka code tayaru cheasi dani jenkins lo deploy cheasi vaka build create cheasi dani qa sever lo deploy chestaru apudu testers testing start chestaru. testers aa build test cheasea loga e developers malli inko requirements tisukoni kotha build create chestaru. ela developing and testing parallel ga jargutai s/w offices lo.
+
+2. Why we need and use Maven?
+maven build create chaiyataniki use chestamu. 
+e maven project lo pom.xml file untadi danilo manam dependencies estea maven automatic ga jar's ani download cheasukoni maven dependencies anea folder lo petukuntadi.
+by default folder structure kuda ela vastadi
+	src/main/java
+	src/test/java
+
+3. Difference between java project and maven project?
+Java project lo manam test cases rayochu run chaiyochu kani fault entantea project pai right click echi "build path" loki velli "configure build path" pai click cheasi akada jar's add chestanu edi chala time waste adea e maven project lo ite pom.xml file untadi danilo manam dependencies estea maven automatic ga jar's ani download cheasukoni maven dependencies anea folder lo petukuntadi.
+
+4. What is POM.XML file?
+pom.xml file lo project info and configuration untadi. maven project lo pom.xml file untadi danilo manam dependencies estea maven automatic ga jar's ani download cheasukoni maven dependencies anea folder lo petukuntadi.

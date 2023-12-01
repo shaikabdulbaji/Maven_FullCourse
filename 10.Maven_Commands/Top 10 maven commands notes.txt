@@ -1,0 +1,60 @@
+Top 10 maven commands : (ekada chupinchea commands motham maven build lo evali)
+
+1. To compile main source files(files under src/main/java) ---> edi only src/main/java kinda una files ni compile chestundi (compile antea .java file ni .class ki convert chaiyatam)
+   manam project location ki velli targets anea folder kinda chusukovachu.
+
+   mvn compile(one method)
+   mvn compiler:compile(second method)
+
+2. To compile test source files(files under src/test/java) ---> edi only src/test/java kinda una files ni compile chestundi (compile antea .java file ni .class ki convert chaiyatam)
+   manam project location ki velli targets anea folder kinda chusukovachu.
+
+   mvn test-compile(one method)
+   mvn compiler:testCompile(second method)
+
+3. To Run all testcases from src/test/java(files under src/test/java) ---> edi only src/test/java kinda una all files ni Run chestundi.
+
+   mvn test(one method)
+   mvn surefire:test(second method) (Not working)
+
+4. To Run single testcase from src/test/java(files under src/test/java) ---> edi only src/test/java kinda una single file ni Run chestundi. (important interview question)
+
+   mvn test -Dtest=testcaseName(syntax)
+   mvn test -Dtest=TestCase2(example)
+
+5. To Run single testcase from different packages with same name (denitho problem entantea same name tho una testcases ani run aavutai - important interview question)
+
+   mvn test -Dtest=testcaseName(syntax)
+   mvn test -Dtest=TestCase1(example)
+
+6. To Run specific testcase from specific package among which have same testcaseName (important interview question)
+
+   mvn test -Dtest=packageName.testcaseName(syntax)
+   mvn test -Dtest=package2.TestCase1(example)
+
+7. To Run all testcases from specific package (important interview question)
+
+   mvn test -Dtest=packageName.*(syntax)
+   mvn test -Dtest=package2.*(example) (Not working)
+
+8. Creating jar of maven project (refer screenshot for adding plugins)
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>2.6</version>
+					<configuration>
+						<archive>
+							<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+						</archive>
+					</configuration>
+				</plugin>
+   mvn package
+   mvn install
+
+9. Cleaning maven project 
+
+   mvn clean
+
+10. mvn clean install
+    clean --> clean will clean all the target folder
+    install --> it will again create the jar

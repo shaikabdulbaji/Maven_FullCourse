@@ -1,0 +1,14 @@
+How to Run Maven Project from another directory using fie flag in maven.
+Here we will run mvn commands from another directory where pom.xml file is not present.
+We will instruct maven to run the pom.xml file from the location provided after -f flag in mvn command.
+
+first vaka maven project create cheasi --> project pai right click echi --> properties loki velli --> project location loki veltamu, vellinatarvata parent project ki ravali(means venaki ravali main project loki).
+
+paina search bar lo cmd ani type cheasi cmd open cheasi e command evali :
+mvn -f 24.Run_Single_Testngxml_file_from_multiple_files_as_per_users_choice_using_maven_cmd/pom.xml clean test
+
+						(OR)
+
+mvn -file 24.Run_Single_Testngxml_file_from_multiple_files_as_per_users_choice_using_maven_cmd/pom.xml clean test
+
+e commands estea chalu aa projects lo tests ani run aavutai.

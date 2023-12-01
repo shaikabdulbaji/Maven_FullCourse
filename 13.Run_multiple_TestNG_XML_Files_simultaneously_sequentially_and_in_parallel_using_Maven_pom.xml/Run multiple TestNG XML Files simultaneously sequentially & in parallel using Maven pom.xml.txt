@@ -1,0 +1,95 @@
+Setup Maven Project :
+1. Create a maven project.
+2. Configure the pom.xml - Add surfire plugin.
+3. Add sample testcases under src/test/java.
+4. create 3xml files and add tests in that.
+5. Run single testng.xml.
+6. Run multiple xml files.
+7. Run multiple xml files in parallel.
+
+Denilo manam more than one testng.xml files create chestamu vatiki manam names ela estamu :
+1. sanity.xml
+2. smoke.xml
+3. coverage.xml
+4. regression.xml
+e session lo vetini single ga and combined ga and parallel ga ala run chiyali aneadi ekada chustamu.
+
+vitini run cheasea process :
+create maven project --> add surefire-pugin --> create some packages and testcases under src/test/java --> create 3xml files --> run singely and combinedly and parallely.
+
+vitikosam e plugin ni add chaiyali
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.0.0-M5</version>
+<configuration>
+   <suiteXmlFiles>automation.xml</suiteXmlFiles>
+</configuration>
+</plugin>
+
+How to run multiple TestNG XML Files simultaneously sequentially & in parallel using Maven pom.xml
+
+1. How to run multiple TestNG XML files in a Single Run ?
+   manam 1st vaka testng.xml file vakati create cheasukoni dani rename chestamu like sanity.xml ani tarvata dani pai right click echi run as testng test ani click chestea aa xml file run
+   iedi.
+   aa single.xml file lo ela evali 
+   <test thread-count="5" name="Test">
+    <classes>
+      <class name="package1.Test1"/>
+    </classes>
+   </test> <!-- Test -->
+
+2. How to run multiple TestNG XML files simultaneously using POM.XML ?
+   manam 1st 4 testng.xml files createa cheasukoni vatini rename chestamu like sanity.xml, smoke.xml, coverage.xml, regression.xml tarvata dani pai right click echi run as testng test ani           
+   click chestea aa xml file run iedi.
+   adea ani testcases combine cheasi run chaiyali antea testng.xml file lo ela evali
+   <suite name="AutomationSuite">
+  <suite-files>
+  	<suite-file path="xml/sanity.xml"></suite-file>
+  	<suite-file path="xml/regression.xml"></suite-file>
+  	<suite-file path="xml/smoke.xml"></suite-file>
+  	<suite-file path="xml/coverage.xml"></suite-file>
+  </suite-files>
+ </suite> <!-- Suite -->
+
+3. How to run multiple TestNG XML files in Parallel mode using Maven Pom.xml ?
+   manam test cases ani parallel ga run chaiyali antea two ways lo chaiyavachu :
+
+   one way :
+   				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>3.0.0-M5</version>
+					<configuration>
+						<suiteXmlFiles>
+							<suiteXmlFile>xml/sanity.xml</suiteXmlFile>
+							<suiteXmlFile>xml/regression.xml</suiteXmlFile>
+							<suiteXmlFile>xml/smoke.xml</suiteXmlFile>
+							<suiteXmlFile>xml/coverage.xml</suiteXmlFile>
+						</suiteXmlFiles>
+					</configuration>
+				</plugin>
+
+   second way :
+   manam test cases ani parallel ga vakea sari run aavali antea pom.xml file lo e plugin add chaiyali.
+   <properties>
+	<property>
+		<name>suitethreadpoolsize</name>
+		<value>3</value>
+	</property>
+  </properties>
+  e properties file ekada evali antea
+  				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>3.0.0-M5</version> 
+					<configuration>
+						<suiteXmlFiles>automation.xml</suiteXmlFiles>
+						<properties>
+							<property>
+								<name>suitethreadpoolsize</name>
+								<value>3</value>
+							</property>
+						</properties>
+					</configuration>
+				</plugin>

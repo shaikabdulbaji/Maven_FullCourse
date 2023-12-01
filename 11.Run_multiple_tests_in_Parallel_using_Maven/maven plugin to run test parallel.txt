@@ -1,0 +1,81 @@
+For example we have four test cases and we want to run it parallel then we give mvn test, then that four testcases will run one after another, by this parallel execution is not possible,
+to make it possible we want to give below plugin in pom.xml file.
+
+
+Run multiple tests in Parallel using Maven pom.xml :
+1. TestNG.xml file ni create chaiyali aa tarvata manam surefire plugin ni add cheasukovali with some configurations tho.
+
+2. Add Surefire plugin
+
+For adding surefire plugin we search in google it will give default like this :
+<project>
+  [...]
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.2.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  [...]
+</project>
+
+in this plugin we want to do some modification by giving configuration plugin, e configuration plugin manam a rasukovali under version.
+
+<configuration>
+	<suiteXmlFiles>testng.xml</suiteXmlFiles> --> edi testng.xml file create cheasina tarvata configurations lo "suiteXmlFiles" anea tags tho ela estamu, nduku antea tests run 							      ieatapudu mana testng fiest testNG.xml nea tisukuntundi kabati.
+			<properties>
+				<property>
+					<name>parallel</name>
+					<value>classes</value>  --> If we give classes, classes will run parallel, If we give methods, methods will run parallel, If we give tests, test will run parallel.
+				</property>
+				<property>
+					<name>threadCount</name> --> threadCount estea motham browsers vakeasari open aavutai.
+					<value>3</value>
+				</property>
+			</properties>
+</configuration>
+
+
+Main plugin :
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M5</version>
+				<configuration>
+				<suiteXmlFiles>testng.xml</suiteXmlFiles>
+					<properties>
+						<property>
+							<name>parallel</name>
+							<value>classes</value>  --> If we give classes, classes will run parallel, If we give methods, methods will run parallel, if we give 										    tests, tests will run parallely(tests lo pedhaga em difference undadu normal ga run aavutai testcases 										    vakati tarvata vakati).
+						</property>
+						<property>
+							<name>threadCount</name>
+							<value>3</value>
+						</property>
+					</properties>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+If we give classes, classes will run parallel. --> ani classes untea ani classes vakea sari browsers open aavutai.
+If we give methods, methods will run parallel. --> ani methods untea vaka class lo ani vakeasari browsers open aavutai.
+
+<test thread-count="5" name="Test1">
+    <classes>
+      <class name="test.testcase1"/>
+    </classes>
+  </test> <!-- Test -->
+  <test thread-count="5" name="Test2">
+    <classes>
+      <class name="test.testcase2"/>
+If we give tests, test will run parallel. --> manam only tests run chaiyali antea ala testng.xml lo paina chupinchinatu divide chaiyali tests.

@@ -1,0 +1,27 @@
+if we want to skip any testcase from project give this command 
+-->  mvn test -Dtest=!testcaseName (Syntax)
+-->  mvn test -Dtest=!testcase1 (Reality) (To skip that paticular testcase)
+
+
+if we want to skip any testcase from particular package give this command  
+-->  mvn test -Dtest=!packageName.testcaseName (Syntax)
+-->  mvn test -Dtest=!package1.testcase1 (Reality) (To skip that paticular testcase from particular package)
+
+if we want to skip multiple testcase at a time give this command  
+-->  mvn test -Dtest=!testcaseNameX,!testcaseNameY (Syntax)
+-->  mvn test -Dtest=!testcase1,!testcase3 (Reality) (To skip that multiple testcases)
+
+
+===========================================================================================================
+
+elagea same cmd nunchi run chaiyali antea evea commands cmd lo estea saripotundi
+
+if we want to skip any testcase from project give this command 
+-->  mvn test -Dtest=!testcaseName (Syntax)
+-->  mvn test -Dtest=!testcase1 (Reality) (To skip that paticular testcase)
+
+
+if we want to skip any testcase from particular package give this command  
+-->  mvn test -Dtest=!packageName.testcaseName (Syntax)
+-->  mvn test -Dtest=!package1.testcase1 (Reality) (To skip that paticular testcase from particular package)
+

@@ -1,0 +1,31 @@
+6. How to download/install Maven in Windows ?
+
+ 1. Maven Plugin/software for Eclipse(Update Maven for latest version of Eclipse):=
+
+ -Copy "https://download.eclipse.org/technolo..."
+ -Go to Ecplise-Help-Install New Software-Add above URL and click on Add
+ -Add Name and enter same URL
+ -Select checkbox and click on Next...Finish
+ -After installing, Restart ur Eclipse
+
+ 2. Maven Software for MAC/Windows laptop:=
+
+ For Jenkins and runnning ur Maven project from CMD propmt
+
+ -Go to "https://maven.apache.org/download.cgi"
+ -Download Zip file for Maven
+ -Binary zip archive apache-maven-3.6.3-bin.zip
+ 
+ -Setup Environmental Variables and Path
+ -M2_Home=C:\Users\pandi\Desktop\apache-maven-3.6.3
+ -Maven_Home=C:\Users\pandi\Desktop\apache-maven-3.6.3
+ -%Maven_Home% and %M2_Home%
+ -Add path upto the bin folder="C:\Users\pandi\Desktop\apache-maven-3.6.3\bin"
+
+Setup dependencies in POM.xml
+
+Go to website: https://mvnrepository.com/
+Search dependencies and add 3 lines of code in POM.xml
+gropup Id, Artifact Id, Version
+  
+Jars will be stored at Local Machine:(in .m2 repository) 
